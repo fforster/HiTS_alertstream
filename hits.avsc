@@ -1,0 +1,44 @@
+{
+	"namespace": "hits",
+	"type": "record",
+	"name": "alert",
+	"doc": "avro alert schema",
+	"version": "0.1",
+	"fields": [
+		  {"name": "Id", "type": "int", "doc": "object id"},
+		  {"name": "field", "type": "string", "doc": "field name"},
+		  {"name": "ccd", "type": "string", "doc": "ccd name"},
+		  {"name": "ipix", "type": "int", "doc": "x pixel [pix]"},
+		  {"name": "jpix", "type": "int", "doc": "j pixel [pix]"},
+		  {"name": "RA", "type": "float", "doc": "right ascension [deg]"},
+		  {"name": "DEC", "type": "float", "doc": "declination [deg]"},
+		  {"name": "sciMJD", "type": "string", "doc": "science MJD [days]"},
+		  {"name": "refMJD", "type": "string", "doc": "reference MJD [days]"},
+		  {"name": "sciepoch", "type": "int", "doc": "science epoch"},
+		  {"name": "refepoch", "type": "int", "doc": "reference epoch"},
+		  {"name": "sciairmass", "type": "float", "doc": "science airmass"},
+		  {"name": "refairmass", "type": "float", "doc": "reference airmass"},
+		  {"name": "sciexptime", "type": "float", "doc": "science exptime"},
+		  {"name": "refexptime", "type": "float", "doc": "reference exptime"},
+		  {"name": "filter", "type": "string", "doc": "filter name"},
+		  {"name": "flux", "type": "float", "doc": "flux [ADU]"},
+		  {"name": "e_flux", "type": "float", "doc": "flux error [ADU]"},
+		  {"name": "mag", "type": "float", "doc": "magnitude"},
+		  {"name": "e1_mag", "type": "float", "doc": "magnitude error 1"},
+		  {"name": "e2_mag", "type": "float", "doc": "magnitude error 2"},
+		  {"name": "prob", "type": "float", "doc": "stamp probability"},
+		  {"name": "label", "type": "string", "doc": "difference label"},
+		  {"name": "convref", "type": "boolean", "doc": "true if reference image was convolved, false if the science image was convolved"},
+		  {"name": "npsf", "type": "int", "doc": "stamp and psf dimension [pix]"},
+		  {"name": "psf", "type": [{
+		   "type": "array", "items": "float"}, "null" ], "default": null, "doc": "psf image"},
+		  {"name": "imSNR", "type": [{
+		   "type": "array", "items": "float"}, "null" ], "default": null, "doc": "difference signal to noise ratio image (flattened from npsf x npsf array)"},
+		  {"name": "im1", "type": [{
+		   "type": "array", "items": "float"}, "null" ], "default": null, "doc": "science image (flattened from npsf x npsf array)"},
+		  {"name": "im2", "type": [{
+		   "type": "array", "items": "float"}, "null" ], "default": null, "doc": "reference image (flattened from npsf x npsf array)"},
+		  {"name": "imt", "type": [{
+		   "type": "array", "items": "float"}, "null" ], "default": null, "doc": "science or reference image convolved (flattened from npsf x npsf array)"}
+		]
+}
